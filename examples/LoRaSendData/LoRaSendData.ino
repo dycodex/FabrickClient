@@ -62,11 +62,11 @@ void loop() {
     int dataLength = 4;
 
     bool result = fabrick.send(FABRICK_DEVICE_ID, frameCounter, dataChannel, dataType, temperatureData, dataLength);
-    delay(3000);
-
     if (result) {
         Serial.println("Successfully send data");
     } else {
         Serial.println("Failed to send data");
     }
+
+    delay(3000);
 }
