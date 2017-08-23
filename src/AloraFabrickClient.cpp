@@ -82,3 +82,60 @@ bool AloraFabrickClient::sendAccelerometer(float x, float y, float z) {
     return fabrickIface->send(id, frameCnt, channel, type, data, dataLength);
 }
 
+bool AloraFabrickClient::sendGyrocopter(float x, float y, float z) {
+    int xInt = (int)(x * 1000);
+    int yInt = (int)(y * 1000);
+    int zInt = (int)(z * 1000);
+
+    long xLong = (xInt >= 0) ? xInt : (xInt + 65536);
+    long yLong = (yInt >= 0) ? yInt : (yInt + 65536);
+    long zLong = (zInt >= 0) ? zInt : (zInt + 65536);
+
+    int dataLength = 6; // 3 bytes
+    String xStr = FabrickUtils::addZeros(String(xLong, HEX), 2);
+    String yStr = FabrickUtils::addZeros(String(yLong, HEX), 2);
+    String zStr = FabrickUtils::addZeros(String(zLong, HEX), 2);
+
+    String data = xStr + yStr + zStr;
+    int frameCnt = 1;
+    int channel = 0;
+    int type = 3334;
+
+    return fabrickIface->send(id, frameCnt, channel, type, data, dataLength);
+}
+
+bool AloraFabrickClient::sendMagnetometer(float x, float y, float z) {
+    int xInt = (int)(x * 1000);
+    int yInt = (int)(y * 1000);
+    int zInt = (int)(z * 1000);
+
+    long xLong = (xInt >= 0) ? xInt : (xInt + 65536);
+    long yLong = (yInt >= 0) ? yInt : (yInt + 65536);
+    long zLong = (zInt >= 0) ? zInt : (zInt + 65536);
+
+    int dataLength = 6; // 3 bytes
+    String xStr = FabrickUtils::addZeros(String(xLong, HEX), 2);
+    String yStr = FabrickUtils::addZeros(String(yLong, HEX), 2);
+    String zStr = FabrickUtils::addZeros(String(zLong, HEX), 2);
+
+    String data = xStr + yStr + zStr;
+    int frameCnt = 1;
+    int channel = 0;
+    int type = 3314;
+
+    return fabrickIface->send(id, frameCnt, channel, type, data, dataLength);
+}
+
+bool AloraFabrickClient::sendAirQuality(int co2, int tvoc) {
+    int dataLength = 8;
+
+    String co2Str = FabrickUtils::addZeros(String(co2, HEX), 4);
+    String tvocStr = FabrickUtils::addZeros(String(tvoc, HEX), 4);
+    String data = co2Str + tvocStr;
+
+    int frameCnt = 1;
+    int channel = 0;
+    int type = 3300;
+
+    return fabrickIface->send(id, frameCnt, channel, type, data, dataLength);
+}
