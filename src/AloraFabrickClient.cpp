@@ -25,7 +25,7 @@ bool AloraFabrickClient::sendTemperature(float temperatureInC) {
 }
 
 bool AloraFabrickClient::sendHumidity(float humidity) {
-    int humInt = (int)(humidity * 50);
+    int humInt = (int)(humidity * 2);
     int dataLength = 2; // 1 byte
     String data = FabrickUtils::addZeros(String(humInt, HEX), dataLength);
 
