@@ -6,6 +6,9 @@
 #include "FabrickNetIF.h"
 #include "FabrickUtil.h"
 
+/** \example LoRaSendData/LoRaSendData.ino
+ * Blueprint of the LoRa network interface for sending data to Fabrick
+ */
 class FabrickLoRa: public FabrickNetIF {
 public:
     FabrickLoRa();

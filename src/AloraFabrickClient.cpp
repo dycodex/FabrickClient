@@ -6,11 +6,22 @@ AloraFabrickClient::AloraFabrickClient() {
 AloraFabrickClient::~AloraFabrickClient() {
 }
 
+/**
+ * Set the network interface for sending data & device ID.
+ * @param netIface network interface for sending data.
+ * @param deviceId device ID that is registered to Fabrick cloud.
+ * @see FabrickNetIF
+ */
 void AloraFabrickClient::begin(FabrickNetIF* netIface, String deviceId) {
     fabrickIface = netIface;
     id = deviceId;
 }
 
+/**
+ * Send temperature data through network interface to Fabrick.
+ * @param temperatureInC temperature data in celcius unit.
+ * @return indicates whether the interface got OK response or not. 
+ */
 bool AloraFabrickClient::sendTemperature(float temperatureInC) {
     int tempInt = (int)(temperatureInC * 10);
     long tempLong = (tempInt >= 0) ? tempInt : (tempInt + 65536);
@@ -24,6 +35,11 @@ bool AloraFabrickClient::sendTemperature(float temperatureInC) {
     return fabrickIface->send(id, frameCnt, channel, type, data, dataLength);
 }
 
+/**
+ * Send humidity data through network interface to Fabrick.
+ * @param humidity humidity data.
+ * @return indicates whether the interface got OK response or not.
+ */
 bool AloraFabrickClient::sendHumidity(float humidity) {
     int humInt = (int)(humidity * 2);
     int dataLength = 2; // 1 byte
@@ -36,6 +52,11 @@ bool AloraFabrickClient::sendHumidity(float humidity) {
     return fabrickIface->send(id, frameCnt, channel, type, data, dataLength);
 }
 
+/**
+ * Send pressure data thorugh the network interface.
+ * @param pressure pressure data in hPa unit.
+ * @return indicates whether the interface got OK response or not.
+ */
 bool AloraFabrickClient::sendPressure(float pressure) {
     int pressInt = (int)pressure;
     int dataLength = 4; // 2 bytes
@@ -48,6 +69,11 @@ bool AloraFabrickClient::sendPressure(float pressure) {
     return fabrickIface->send(id, frameCnt, channel, type, data, dataLength);
 }
 
+/**
+ * Send luminance data through the network interface.
+ * @param luminance luminance data in lux unit.
+ * @return indicates whether the interface got OK response or not.
+ */
 bool AloraFabrickClient::sendLux(float luminance) {
     int luminanceInt = (int)luminance;
     int dataLength = 6; // 3 bytes
@@ -60,6 +86,13 @@ bool AloraFabrickClient::sendLux(float luminance) {
     return fabrickIface->send(id, frameCnt, channel, type, data, dataLength);
 }
 
+/**
+ * Send accelerometer data through the network interface.
+ * @param x X axis of the accelerometer.
+ * @param y Y axis of the accelerometer.
+ * @param z Z axis of the accelerometer.
+ * @return indicates whether the interface got OK response or not.
+ */
 bool AloraFabrickClient::sendAccelerometer(float x, float y, float z) {
     int xInt = (int)(x * 1000);
     int yInt = (int)(y * 1000);
@@ -82,6 +115,13 @@ bool AloraFabrickClient::sendAccelerometer(float x, float y, float z) {
     return fabrickIface->send(id, frameCnt, channel, type, data, dataLength);
 }
 
+/**
+ * Send gyrocopter data through the network interface.
+ * @param x X axis of the gyrocopter.
+ * @param y Y axis of the gyrocopter.
+ * @param z Z axis of the gyrocopter.
+ * @return indicates whether the interface got OK response or not.
+ */
 bool AloraFabrickClient::sendGyrocopter(float x, float y, float z) {
     int xInt = (int)(x * 1000);
     int yInt = (int)(y * 1000);
@@ -104,6 +144,13 @@ bool AloraFabrickClient::sendGyrocopter(float x, float y, float z) {
     return fabrickIface->send(id, frameCnt, channel, type, data, dataLength);
 }
 
+/**
+ * Send magnetometer data through the network interface.
+ * @param x X axis of the magnetometer.
+ * @param y Y axis of the magnetometer.
+ * @param z Z axis of the magnetometer.
+ * @return indicates whether the interface got OK response or not.
+ */
 bool AloraFabrickClient::sendMagnetometer(float x, float y, float z) {
     int xInt = (int)(x * 1000);
     int yInt = (int)(y * 1000);
@@ -126,6 +173,12 @@ bool AloraFabrickClient::sendMagnetometer(float x, float y, float z) {
     return fabrickIface->send(id, frameCnt, channel, type, data, dataLength);
 }
 
+/**
+ * Send TVOC and CO2 data through the network interface.
+ * @param co2 CO2 data.
+ * @param tvoc TVOC data
+ * @return indicates whether the interface got OK response or not.
+ */
 bool AloraFabrickClient::sendAirQuality(int co2, int tvoc) {
     int dataLength = 8;
 

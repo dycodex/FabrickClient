@@ -4,6 +4,9 @@
 #include <FabrickNetIF.h>
 #include <FabrickUtil.h>
 
+/** \example AloraSendData/AloraSendData.ino
+ * Class for sending sensor data through LoRa shield / WiFi module
+ */
 class AloraFabrickClient {
 public:
     AloraFabrickClient();

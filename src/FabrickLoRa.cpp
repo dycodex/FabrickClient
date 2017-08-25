@@ -6,6 +6,11 @@ FabrickLoRa::FabrickLoRa() {
 FabrickLoRa::~FabrickLoRa() {
 }
 
+/**
+ * Initialize LoRa shield by checking AT command communication
+ * @param stream any object of class that is derived from Stream class.
+ * @return indicate whether we are able to communicate with the LoRa shield or not.
+ */
 bool FabrickLoRa::begin(Stream* stream) {
     loraStream = stream;
     int retryCount = 0;
@@ -26,6 +31,10 @@ bool FabrickLoRa::begin(Stream* stream) {
     return false;
 }
 
+/**
+ * Get response from AT command
+ * @return response from previous AT command
+ */
 String FabrickLoRa::getResponse() {
     String result = "";
     while (loraStream->available()) {
@@ -35,6 +44,17 @@ String FabrickLoRa::getResponse() {
     return result;
 }
 
+
+/**
+ * Send data through LoRa shield.
+ * @param deviceId Device ID that is registered on Fabrick cloud.
+ * @param frameCounter counter of the frame inside a single payload. One frame can contain a fixed length of sensor payload.
+ * @param channel channel number of the data.
+ * @param dataType type of the data that wil be sent.
+ * @param data the actual data that will be send to the Fabrick cloud.
+ * @param dataeLengthInHex length of the data in the previous argument.
+ * @return Indicate the result of the data transmission process.
+ */
 bool FabrickLoRa::send(String deviceId, int frameCounter, int channel, int dataType, String data, int dataLengthInHex) {
     // Please refer to IPSO Smart Object Document for packet format
 

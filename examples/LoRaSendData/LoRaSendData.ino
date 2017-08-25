@@ -1,33 +1,26 @@
 #include <Arduino.h>
 #include <FabrickLoRa.h>
 
-/**
- * Include appropriate header for dealing with UART communication
- * On ESP32 Arduino, the header file is HardwareSerial.h
- * On Arduino UNO, it should be SoftwareSerial.h
- */
+// Include appropriate header for dealing with UART communication
+// On ESP32 Arduino, the header file is HardwareSerial.h
+// On Arduino UNO, it should be SoftwareSerial.h
+ 
 #include <HardwareSerial.h>
 
-/**
- * Use UART bus 1.
- */
+// Initialize serial for communicating with LoRa shield
 HardwareSerial loraSerial(1);
 
-/**
- * Defines RX and TX pins that connected with LoRa shield.
- */
+// Defines RX and TX pins that connected with LoRa shield.
 #define LORA_RX 33
 #define LORA_TX 23
 
-/**
- * Insantiate the FabrickLoRa object.
- */
+
+// Insantiate the FabrickLoRa object.
 FabrickLoRa fabrick;
 
-/**
- * Define the device ID of your device.
- * This value is obtained from Fabrick device manager
- */
+
+// Define the device ID of your device.
+// This value is obtained from Fabrick device manager
 #define FABRICK_DEVICE_ID "[your device ID here]"
 
 void setup() {
