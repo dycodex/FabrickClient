@@ -27,8 +27,8 @@ void setup() {
     Serial.begin(9600);
     loraSerial.begin(9600, SERIAL_8N1, LORA_RX, LORA_TX);
 
-    if (!fabrick.begin()) {
-        Serial.pritnln("Failed to initialize communication with LoRa shield!");
+    if (!fabrick.begin(&loraSerial)) {
+        Serial.println("Failed to initialize communication with LoRa shield!");
 
         // don't continue the program if we fail
         while (1);
