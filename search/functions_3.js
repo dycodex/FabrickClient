@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['send',['send',['../classFabrickLoRa.html#a134206e9c646bcd7d6de510491a8d114',1,'FabrickLoRa::send()'],['../classFabrickNetIF.html#aa9b490df9cd0a8edbdaea9ea0ae564b7',1,'FabrickNetIF::send()']]],
+  ['send',['send',['../classFabrickLoRa.html#a83a04cb980d3fbf6fa7c95abadba72b4',1,'FabrickLoRa::send()'],['../classFabrickNetIF.html#ad702ac5cbb67a51166e11f0839d68892',1,'FabrickNetIF::send()']]],
   ['sendaccelerometer',['sendAccelerometer',['../classAloraFabrickClient.html#a74f0f51d26ea9599e695cd3a90408df0',1,'AloraFabrickClient']]],
   ['sendairquality',['sendAirQuality',['../classAloraFabrickClient.html#af834aaec3470262d699d7e03061fd163',1,'AloraFabrickClient']]],
   ['sendgyrocopter',['sendGyrocopter',['../classAloraFabrickClient.html#a8be5946a7409918a10f523765d5e8625',1,'AloraFabrickClient']]],

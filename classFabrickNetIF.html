@@ -104,14 +104,14 @@ Inheritance diagram for FabrickNetIF:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aa9b490df9cd0a8edbdaea9ea0ae564b7"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFabrickNetIF.html#aa9b490df9cd0a8edbdaea9ea0ae564b7">send</a> (String deviceId, int frameCounter, int channel, int dataType, String data, int dataLengthInHex)=0</td></tr>
-<tr class="separator:aa9b490df9cd0a8edbdaea9ea0ae564b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad702ac5cbb67a51166e11f0839d68892"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFabrickNetIF.html#ad702ac5cbb67a51166e11f0839d68892">send</a> (String deviceId, int frameCounter, int channel, int dataType, String data, int dataLengthInHex, bool waitOk=false)=0</td></tr>
+<tr class="separator:ad702ac5cbb67a51166e11f0839d68892"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The abstract class of network interface (LoRa &amp; WiFi) of the Fabrick client. The LoRa one is compatible with the Atilze LoRa Shield. </p>
 <dl class="section see"><dt>See Also</dt><dd><a class="el" href="classFabrickLoRa.html">FabrickLoRa</a> </dd></dl>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="aa9b490df9cd0a8edbdaea9ea0ae564b7"></a>
+<a class="anchor" id="ad702ac5cbb67a51166e11f0839d68892"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -152,7 +152,13 @@ Public Member Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>dataLengthInHex</em>&#160;</td>
+          <td class="paramname"><em>dataLengthInHex</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>waitOk</em> = <code>false</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -180,7 +186,7 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Indicate the result of the data transmission process. </dd></dl>
 
-<p>Implemented in <a class="el" href="classFabrickLoRa.html#a134206e9c646bcd7d6de510491a8d114">FabrickLoRa</a>.</p>
+<p>Implemented in <a class="el" href="classFabrickLoRa.html#a83a04cb980d3fbf6fa7c95abadba72b4">FabrickLoRa</a>.</p>
 
 </div>
 </div>
@@ -190,7 +196,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Aug 26 2017 02:13:24 for Fabrick Client by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Aug 26 2017 23:22:34 for Fabrick Client by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

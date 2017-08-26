@@ -105,8 +105,8 @@ Inheritance diagram for FabrickLoRa:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a05f5bcf6114c50ac6f39aad303f87c0b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFabrickLoRa.html#a05f5bcf6114c50ac6f39aad303f87c0b">begin</a> (Stream *stream)</td></tr>
 <tr class="separator:a05f5bcf6114c50ac6f39aad303f87c0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a134206e9c646bcd7d6de510491a8d114"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFabrickLoRa.html#a134206e9c646bcd7d6de510491a8d114">send</a> (String deviceId, int frameCounter, int channel, int dataType, String data, int dataLengthInHex)</td></tr>
-<tr class="separator:a134206e9c646bcd7d6de510491a8d114"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a83a04cb980d3fbf6fa7c95abadba72b4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFabrickLoRa.html#a83a04cb980d3fbf6fa7c95abadba72b4">send</a> (String deviceId, int frameCounter, int channel, int dataType, String data, int dataLengthInHex, bool waitOk=false)</td></tr>
+<tr class="separator:a83a04cb980d3fbf6fa7c95abadba72b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a778289a52fca36023b74bf6adf453d11"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFabrickLoRa.html#a778289a52fca36023b74bf6adf453d11">getResponse</a> ()</td></tr>
 <tr class="separator:a778289a52fca36023b74bf6adf453d11"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -161,7 +161,7 @@ Stream *&#160;</td><td class="memItemRight" valign="bottom"><b>loraStream</b></t
 
 </div>
 </div>
-<a class="anchor" id="a134206e9c646bcd7d6de510491a8d114"></a>
+<a class="anchor" id="a83a04cb980d3fbf6fa7c95abadba72b4"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -202,7 +202,13 @@ Stream *&#160;</td><td class="memItemRight" valign="bottom"><b>loraStream</b></t
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>dataLengthInHex</em>&#160;</td>
+          <td class="paramname"><em>dataLengthInHex</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>waitOk</em> = <code>false</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -225,12 +231,13 @@ Stream *&#160;</td><td class="memItemRight" valign="bottom"><b>loraStream</b></t
     <tr><td class="paramname">dataType</td><td>type of the data that wil be sent. </td></tr>
     <tr><td class="paramname">data</td><td>the actual data that will be send to the Fabrick cloud. </td></tr>
     <tr><td class="paramname">dataeLengthInHex</td><td>length of the data in the previous argument. </td></tr>
+    <tr><td class="paramname">waitOk</td><td>if set to false, the library will not wait for OK response from LoRa shield </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Indicate the result of the data transmission process. </dd></dl>
 
-<p>Implements <a class="el" href="classFabrickNetIF.html#aa9b490df9cd0a8edbdaea9ea0ae564b7">FabrickNetIF</a>.</p>
+<p>Implements <a class="el" href="classFabrickNetIF.html#ad702ac5cbb67a51166e11f0839d68892">FabrickNetIF</a>.</p>
 <dl><dt><b>Examples: </b></dt><dd><a class="el" href="LoRaSendData_2LoRaSendData_8ino-example.html#a3">LoRaSendData/LoRaSendData.ino</a>.</dd>
 </dl>
 </div>
@@ -242,7 +249,7 @@ Stream *&#160;</td><td class="memItemRight" valign="bottom"><b>loraStream</b></t
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Aug 26 2017 02:13:24 for Fabrick Client by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Aug 26 2017 23:22:34 for Fabrick Client by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

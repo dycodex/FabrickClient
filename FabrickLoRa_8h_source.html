@@ -102,7 +102,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    ~<a class="code" href="classFabrickLoRa.html">FabrickLoRa</a>();</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classFabrickLoRa.html#a05f5bcf6114c50ac6f39aad303f87c0b">begin</a>(Stream* stream);</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classFabrickLoRa.html#a134206e9c646bcd7d6de510491a8d114">send</a>(String deviceId, <span class="keywordtype">int</span> frameCounter, <span class="keywordtype">int</span> channel, <span class="keywordtype">int</span> dataType, String data, <span class="keywordtype">int</span> dataLengthInHex);</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classFabrickLoRa.html#a83a04cb980d3fbf6fa7c95abadba72b4">send</a>(String deviceId, <span class="keywordtype">int</span> frameCounter, <span class="keywordtype">int</span> channel, <span class="keywordtype">int</span> dataType, String data, <span class="keywordtype">int</span> dataLengthInHex, <span class="keywordtype">bool</span> waitOk = <span class="keyword">false</span>);</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    String <a class="code" href="classFabrickLoRa.html#a778289a52fca36023b74bf6adf453d11">getResponse</a>();</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">private</span>:</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    Stream* loraStream;</div>
@@ -111,13 +111,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="classFabrickLoRa_html"><div class="ttname"><a href="classFabrickLoRa.html">FabrickLoRa</a></div><div class="ttdef"><b>Definition:</b> FabrickLoRa.h:12</div></div>
 <div class="ttc" id="classFabrickLoRa_html_a778289a52fca36023b74bf6adf453d11"><div class="ttname"><a href="classFabrickLoRa.html#a778289a52fca36023b74bf6adf453d11">FabrickLoRa::getResponse</a></div><div class="ttdeci">String getResponse()</div><div class="ttdef"><b>Definition:</b> FabrickLoRa.cpp:38</div></div>
+<div class="ttc" id="classFabrickLoRa_html_a83a04cb980d3fbf6fa7c95abadba72b4"><div class="ttname"><a href="classFabrickLoRa.html#a83a04cb980d3fbf6fa7c95abadba72b4">FabrickLoRa::send</a></div><div class="ttdeci">bool send(String deviceId, int frameCounter, int channel, int dataType, String data, int dataLengthInHex, bool waitOk=false)</div><div class="ttdef"><b>Definition:</b> FabrickLoRa.cpp:59</div></div>
 <div class="ttc" id="classFabrickLoRa_html_a05f5bcf6114c50ac6f39aad303f87c0b"><div class="ttname"><a href="classFabrickLoRa.html#a05f5bcf6114c50ac6f39aad303f87c0b">FabrickLoRa::begin</a></div><div class="ttdeci">bool begin(Stream *stream)</div><div class="ttdef"><b>Definition:</b> FabrickLoRa.cpp:14</div></div>
 <div class="ttc" id="classFabrickNetIF_html"><div class="ttname"><a href="classFabrickNetIF.html">FabrickNetIF</a></div><div class="ttdef"><b>Definition:</b> FabrickNetIF.h:9</div></div>
-<div class="ttc" id="classFabrickLoRa_html_a134206e9c646bcd7d6de510491a8d114"><div class="ttname"><a href="classFabrickLoRa.html#a134206e9c646bcd7d6de510491a8d114">FabrickLoRa::send</a></div><div class="ttdeci">bool send(String deviceId, int frameCounter, int channel, int dataType, String data, int dataLengthInHex)</div><div class="ttdef"><b>Definition:</b> FabrickLoRa.cpp:58</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Aug 26 2017 02:13:24 for Fabrick Client by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Aug 26 2017 23:22:34 for Fabrick Client by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

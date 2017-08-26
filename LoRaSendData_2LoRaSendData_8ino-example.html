@@ -109,8 +109,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">    Serial.<a name="a1"></a><a class="code" href="classFabrickLoRa.html#a05f5bcf6114c50ac6f39aad303f87c0b">begin</a>(9600);</div>
 <div class="line">    loraSerial.begin(9600, SERIAL_8N1, LORA_RX, LORA_TX);</div>
 <div class="line"></div>
-<div class="line">    <span class="keywordflow">if</span> (!fabrick.<a class="code" href="classFabrickLoRa.html#a05f5bcf6114c50ac6f39aad303f87c0b">begin</a>()) {</div>
-<div class="line">        Serial.pritnln(<span class="stringliteral">&quot;Failed to initialize communication with LoRa shield!&quot;</span>);</div>
+<div class="line">    <span class="keywordflow">if</span> (!fabrick.<a class="code" href="classFabrickLoRa.html#a05f5bcf6114c50ac6f39aad303f87c0b">begin</a>(&amp;loraSerial)) {</div>
+<div class="line">        Serial.println(<span class="stringliteral">&quot;Failed to initialize communication with LoRa shield!&quot;</span>);</div>
 <div class="line"></div>
 <div class="line">        <span class="comment">// don&#39;t continue the program if we fail</span></div>
 <div class="line">        <span class="keywordflow">while</span> (1);</div>
@@ -136,7 +136,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">    <span class="keywordtype">int</span> dataType = 3303;  <span class="comment">// 3303 = temperature data type</span></div>
 <div class="line">    <span class="keywordtype">int</span> dataLength = 4;</div>
 <div class="line"></div>
-<div class="line">    <span class="keywordtype">bool</span> result = fabrick.<a name="a3"></a><a class="code" href="classFabrickLoRa.html#a134206e9c646bcd7d6de510491a8d114">send</a>(FABRICK_DEVICE_ID, frameCounter, dataChannel, dataType, temperatureData, dataLength);</div>
+<div class="line">    <span class="keywordtype">bool</span> result = fabrick.<a name="a3"></a><a class="code" href="classFabrickLoRa.html#a83a04cb980d3fbf6fa7c95abadba72b4">send</a>(FABRICK_DEVICE_ID, frameCounter, dataChannel, dataType, temperatureData, dataLength);</div>
 <div class="line">    <span class="keywordflow">if</span> (result) {</div>
 <div class="line">        Serial.println(<span class="stringliteral">&quot;Successfully send data&quot;</span>);</div>
 <div class="line">    } <span class="keywordflow">else</span> {</div>
@@ -148,7 +148,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Aug 26 2017 02:13:24 for Fabrick Client by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Aug 26 2017 23:22:34 for Fabrick Client by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
