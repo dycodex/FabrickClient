@@ -15,7 +15,7 @@ public:
     ~FabrickLoRa();
 
     bool begin(Stream* stream);
-    bool send(String deviceId, int frameCounter, int channel, int dataType, String data, int dataLengthInHex);
+    bool send(String deviceId, int frameCounter, int channel, int dataType, String data, int dataLengthInHex, bool waitOk = false);
     String getResponse();
 private:
     Stream* loraStream;

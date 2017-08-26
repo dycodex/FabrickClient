@@ -1,6 +1,7 @@
 #include <Arduino.h>
 #include <Wire.h>
 #include <FabrickLoRa.h>
+#include <AloraFabrickClient.h>
 
 // Include the header of Alora library.
 #include <AloraSensorKit.h>
@@ -20,19 +21,20 @@ HardwareSerial loraSerial(1);
 
 
 // Instantiate the AloraSensorKit class and global variable of Alora's SensorValue structure.
-AloraSensorKit sensorkit;
+AloraSensorKit sensorKit;
 SensorValues lastSensorData;
-
-
 
 // Insantiate the FabrickLoRa and AloraFabrickClient object.
 FabrickLoRa fabrick;
 AloraFabrickClient aloraFabrick;
 
-
 // Define the device ID of your device.
 // This value is obtained from Fabrick device manager
-#define FABRICK_DEVICE_ID "[your device ID here]"
+#define FABRICK_DEVICE_ID "[Your device ID here]"
+
+// Time tracker for sending data.
+uint32_t temperatureSendMillis = 0;
+uint32_t humiditySendMillis = 0;
 
 void setup() {
     Serial.begin(9600);
@@ -55,21 +57,27 @@ void loop() {
     sensorKit.run();
     lastSensorData = sensorKit.getLastSensorData();
 
-    // send temperature data from BME280 sensor
-    if (aloraFabrick.sendTemperature(lastSensorData.T1)) {
-        Serial.println("Success send temperature tx packet");
-    } else {
-        Serial.println("Failed to send temperature tx packet");
+    if (millis() - temperatureSendMillis >= 15 * 1000) {
+        // update the time tracker
+        temperatureSendMillis = millis();
+
+        // send temperature data from BME280 sensor
+        if (aloraFabrick.sendTemperature(lastSensorData.T1)) {
+            Serial.println("Success send temperature tx packet");
+        } else {
+            Serial.println("Failed to send temperature tx packet");
+        }
     }
 
-    delay(3000);
+    if (millis() - humiditySendMillis >= 30 * 1000) {
+        // update the time tracker
+        humiditySendMillis = millis();
 
-    // send humidity data from BME280 sensor
-    if (aloraFabrick.sendHumidity(lastSensorData.H1)) {
-        Serial.println("Success send humidity tx packet");
-    } else {
-        Serial.println("Failed to send humidity tx packet");
+        // send humidity data from BME280 sensor
+        if (aloraFabrick.sendHumidity(lastSensorData.H1)) {
+            Serial.println("Success send humidity tx packet");
+        } else {
+            Serial.println("Failed to send humidity tx packet");
+        }
     }
-
-    delay(3000);
 }

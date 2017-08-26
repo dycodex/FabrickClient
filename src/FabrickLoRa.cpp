@@ -13,22 +13,22 @@ FabrickLoRa::~FabrickLoRa() {
  */
 bool FabrickLoRa::begin(Stream* stream) {
     loraStream = stream;
-    int retryCount = 0;
-    int maxRetry = 3;
+    // int retryCount = 0;
+    // int maxRetry = 3;
 
-    while (retryCount < maxRetry) {
-        loraStream->print("AT\r\n");
-        String response = getResponse();
+    // while (retryCount < maxRetry) {
+    //     loraStream->print("AT\r\n");
+    //     String response = getResponse();
 
-        if (response.indexOf("OK") > -1) {
-            return true;
-        } else {
-            retryCount++;
-            delay(100);
-        }
-    }
+    //     if (response.indexOf("OK") > -1) {
+    //         return true;
+    //     } else {
+    //         retryCount++;
+    //         delay(100);
+    //     }
+    // }
 
-    return false;
+    return true;
 }
 
 /**
@@ -53,9 +53,10 @@ String FabrickLoRa::getResponse() {
  * @param dataType type of the data that wil be sent.
  * @param data the actual data that will be send to the Fabrick cloud.
  * @param dataeLengthInHex length of the data in the previous argument.
+ * @param waitOk if set to false, the library will not wait for OK response from LoRa shield
  * @return Indicate the result of the data transmission process.
  */
-bool FabrickLoRa::send(String deviceId, int frameCounter, int channel, int dataType, String data, int dataLengthInHex) {
+bool FabrickLoRa::send(String deviceId, int frameCounter, int channel, int dataType, String data, int dataLengthInHex, bool waitOk) {
     // Please refer to IPSO Smart Object Document for packet format
 
     // Frame counter in hex string
@@ -77,6 +78,10 @@ bool FabrickLoRa::send(String deviceId, int frameCounter, int channel, int dataT
     String ATCommand = "AT+DTX=" + txPacketLength + "," + txPacket + "\r\n";
 
     loraStream->print(ATCommand.c_str());
+
+    if (!waitOk) {
+        return true;
+    }
 
     String response = getResponse();
 

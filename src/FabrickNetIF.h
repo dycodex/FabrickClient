@@ -19,7 +19,7 @@ public:
      * @param dataeLengthInHex length of the data in the previous argument.
      * @return Indicate the result of the data transmission process.
      */
-    virtual bool send(String deviceId, int frameCounter, int channel, int dataType, String data, int dataLengthInHex) = 0;
+    virtual bool send(String deviceId, int frameCounter, int channel, int dataType, String data, int dataLengthInHex, bool waitOk = false) = 0;
 };
 
 #endif
